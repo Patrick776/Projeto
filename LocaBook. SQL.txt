@@ -1,0 +1,119 @@
+Database: `acervo`
+--
+
+-- -----------
+
+Table structure for table `admin`
+
+
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `CodAdm` int(10) NOT NULL AUTO_INCREMENT,
+  
+						  `Nome` varchar(150) NOT NULL,
+  
+						  `Login` varchar(45) NOT NULL,
+  
+					          `Senha` varchar(45) NOT NULL,
+  
+			  PRIMARY KEY (`CodAdm`),
+  KEY `CodAdm_idx` (`CodAdm`)
+) 
+
+
+-- --------------------------------------------------------
+
+--
+--
+ 
+Table structure for table `emprestimo`
+--
+
+DROP TABLE IF EXISTS `emprestimo`;
+
+CREATE TABLE IF NOT EXISTS `emprestimo` (
+  `CodEmpre` int(10) NOT NULL,
+  
+			 		       `ISB` tinytext NOT NULL,
+  
+					       `DtEmpre` date NOT NULL,
+  
+						 `DtDev` date NOT NULL,
+  
+					      PRIMARY KEY (`CodEmpre`),
+  
+			     UNIQUE KEY `CodEmpre_UNIQUE` (`CodEmpre`)
+) 
+
+
+
+-- --------------------------------------------------------
+
+--
+-- 
+
+Table structure for table `usuario`
+--
+
+
+DROP TABLE IF EXISTS `usuario`;
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `CodUsuario` int(10) NOT NULL,
+  
+					 `Nome` varchar(150) NOT NULL,
+  
+ 					`Email` varchar(100) NOT NULL,
+  
+					 `DtNascimento` date NOT NULL,
+  
+				     `Endereco` varchar(150) NOT NULL,
+  
+					  `Telefone` int(10) NOT NULL,
+  
+			 		   PRIMARY KEY (`CodUsuario`),
+  
+			UNIQUE KEY `CodUsuario_UNIQUE` (`CodUsuario`)
+)
+
+
+-phpMyAdmin
+-
+
+-- --------------------------------------------------------
+
+--
+-- 
+
+Table structure for table `books`
+--
+
+DROP TABLE IF EXISTS `books`;
+
+CREATE TABLE IF NOT EXISTS `books` (
+   `﻿ISBN` int(11) NOT NULL,
+  
+					    `Title` text NOT NULL,
+  
+					   `Author` text NOT NULL,
+  
+					  `Year` int(11) NOT NULL,
+ 
+					`Publisher` text NOT NULL,
+ 
+				      `Image-URL-L` text NOT NULL,
+  
+					    `DataEmprestimo` text,
+  
+					     `DataDevolucao` text,
+  
+					  PRIMARY KEY (`﻿ISBN`)
+) 
+
+
+ENGINE=InnoDB DEFAULT CHARSET=armscii8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT *
